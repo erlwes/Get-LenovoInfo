@@ -9,7 +9,7 @@ The scripts calculates this age in years and presents it as "YearsSinceBought"
 
 ## Install
 ```PowerShell
-Install-Script -Name Get-LenovoWarranty
+Install-Script -Name Get-LenovoInfo
 ```
 
 
