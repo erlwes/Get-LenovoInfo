@@ -1,4 +1,4 @@
-# Get-LenovoWarranty
+# Get-LenovoInfo
 Get product information and warranty of a Lenovo PC from a serialnumber
 
 I have been using this method for ~2 years and it has been stable. If Lenovo changes their web-services, it could easiliy break. Lenovo does have a API, but I have had no luck in requesting a API key 🤷‍♂️
@@ -15,7 +15,7 @@ Install-Script -Name Get-LenovoWarranty
 
 ## 🔵 Example 1 - Single serialnumber, brief output
 ```PowerShell
-Get-LenovoWarranty -Serialnumber PC29DABC -Brief
+Get-LenovoInfo -Serialnumber PC29DABC -Brief
 ```
 ```
 DeliveryType     : On site
@@ -31,7 +31,7 @@ YearsSinceBought : 1,28
 
 ## 🔵 Example 2 - Many from pipeline, sorted and formated as table
 ```PowerShell
-'GM0CDABC', 'PF4A2ABC', 'GM03NABC', 'PC29DABC' | Get-LenovoWarranty.ps1 -Brief | Sort YearsSinceBought | Format-Table
+'GM0CDABC', 'PF4A2ABC', 'GM03NABC', 'PC29DABC' | Get-LenovoInfo.ps1 -Brief | Sort YearsSinceBought | Format-Table
 ```
 ```
 DeliveryType ProductName Model      SerialNumber Name               Status  DaysLeft YearsSinceBought
