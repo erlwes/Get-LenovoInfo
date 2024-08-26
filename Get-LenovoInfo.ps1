@@ -1,6 +1,6 @@
 <#PSScriptInfo
 
-    .VERSION 1.3.0
+    .VERSION 1.4.0
     .GUID 2ec72304-ff34-4f42-bd0c-2211df4d9074
     .AUTHOR Erlend Westervik
     .COMPANYNAME
@@ -15,7 +15,7 @@
     .RELEASENOTES        
         Version: 1.0.0 - Original published version
         Version: 1.1.0 - Rewrite. New baseline.
-        Version: 1.3.0 - Added 'ShowCachesCombined' + fixed some output that got pre-formated
+        Version: 1.4.0 - Added 'ShowCachesCombined' + fixed some output that got pre-formated
 #>
 
 <#
