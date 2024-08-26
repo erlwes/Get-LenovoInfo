@@ -523,7 +523,7 @@ end {
     if (!$ShowCachesCombined -or !$InspectCache) { 
         if ($Type -eq 'Warranty') {
             if ($Brief) {
-                $Output = $Script:WarrantyResults | Where-Object {$_.Name -notmatch 'Battery'} | Select-Object $Properties -Last 1            
+                $Output = $Script:WarrantyResults | Where-Object {$_.Name -notmatch 'Battery'} | Select-Object $Properties
             }
             else {
                 $Output = $Script:WarrantyResults | Select-Object $Properties
