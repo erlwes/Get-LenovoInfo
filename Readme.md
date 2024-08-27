@@ -13,7 +13,7 @@ Install-Script -Name Get-LenovoInfo
 ```
 
 
-## 🔵 Example 1 - Single serialnumber, brief output
+## 🔵 Example 1 - Warranty lookup, brief output
 ```PowerShell
 Get-LenovoInfo -Serialnumber PC29DABC -Brief
 ```
@@ -28,8 +28,27 @@ DaysLeft         : 674
 YearsSinceBought : 1,28
 ```
 
+## 🔵 Example 2 - Product specification lookup, brief output
+```PowerShell
+Get-LenovoInfo.ps1 -Serialnumber PC29DABC -Brief -Type ProductSpecification
+```
+```
+ModelCode  Part             Value
+---------  ----             -----
+21BR002AMX Processor        Intel Core i5-1240P, 12C (4P + 8E) / 16T, P-core 1.7 / 4.4GHz, E-core 1.2 / 3.3GHz, 12MB
+21BR002AMX Graphics         Integrated Intel Iris Xe Graphics
+21BR002AMX Memory           16GB Soldered LPDDR5-4800
+21BR002AMX Memory Slots     Memory soldered to systemboard, no slots, dual-channel
+21BR002AMX Max Memory       16GB soldered memory, not upgradable
+21BR002AMX Storage          256GB SSD M.2 2280 PCIe x4 NVMe Opal 2.0
+21BR002AMX Storage Support  One drive, up to 2TB M.2 2280 SSD
+21BR002AMX Storage Slot     One M.2 2280 PCIe 4.0 x4 slot
+21BR002AMX Display          14" WUXGA (1920x1200) IPS 400nits Anti-glare, 100% sRGB, Low Power
+21BR002AMX WLAN + Bluetooth Intel Wi-Fi 6E AX211, 802.11ax 2x2 + BT5.1
+```
 
-## 🔵 Example 2 - Many from pipeline, sorted and formated as table
+
+## 🔵 Example 3 - Multiple from pipeline, warranty sorted and formated as table
 ```PowerShell
 'GM0CDABC', 'PF4A2ABC', 'GM03NABC', 'PC29DABC' | Get-LenovoInfo.ps1 -Brief | Sort YearsSinceBought | Format-Table
 ```
@@ -43,9 +62,9 @@ On site      T14s Gen 2  20XF006RMX PC29DABC     1Y Premier Support Expired -551
 ```
 
 
-## 🔵 Example 3 - Single serialnumber, full output (default)
+## 🔵 Example 4 - Warranty, full output (default)
 ```PowerShell
-Get-LenovoWarranty -Serialnumber PC29DABC
+Get-LenovoInfo.ps1 -Serialnumber PC29DABC
 ```
 ```
 WarrentyType     : 3EZ
