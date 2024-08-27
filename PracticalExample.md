@@ -14,7 +14,10 @@ $MergedResults = @()
 $IntuneLenovoDevices | ForEach-Object {
     Clear-Variable Result -ErrorAction SilentlyContinue
     $Result = Get-LenovoInfo -Serialnumber $_.'Serial number' -Type Warranty -Brief
+    
+    #Join in desired fields from the Intune device export. I'm keeping device name only, but primary user etc. could be usefull as well.
     $Result | Add-Member -MemberType NoteProperty -Name ComputerName -Value $_.'Device name'
+
     $MergedResults += $Result
 }
 $MergedResults | Select-Object ComputerName, ProductName, Model, SerialNumber, Name, Status, DaysLeft, YearsSinceBought | Format-Table *
