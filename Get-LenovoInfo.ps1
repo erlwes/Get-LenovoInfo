@@ -1,6 +1,6 @@
 <#PSScriptInfo
 
-    .VERSION 1.4.0
+    .VERSION 1.5.0
     .GUID 2ec72304-ff34-4f42-bd0c-2211df4d9074
     .AUTHOR Erlend Westervik
     .COMPANYNAME
@@ -15,7 +15,7 @@
     .RELEASENOTES        
         Version: 1.0.0 - Original published version
         Version: 1.1.0 - Rewrite. New baseline.
-        Version: 1.4.0 - Added 'ShowCachesCombined' + fixed some output that got pre-formated
+        Version: 1.5.0 - Added 'ShowCachesCombined' + fixed some output that got pre-formated
 #>
 
 <#
@@ -469,7 +469,7 @@ begin {
                         DeviceStorage       = [string]($ProductSpecificationMatch | Where-Object {$_.Part -eq 'Storage'}         | Select-Object -ExpandProperty Value)
                         DeviceSecurityChip  = [string]($ProductSpecificationMatch | Where-Object {$_.Part -eq 'Security Chip'}   | Select-Object -ExpandProperty Value)
                     }
-                    $Devices += $Device
+                    $Script:Devices += $Device
                 }
             }
         }        
@@ -520,7 +520,7 @@ process {
     }
 }
 end {
-    if (!$ShowCachesCombined -or !$InspectCache) { 
+    if (!$ShowCachesCombined -and !$InspectCache) {         
         if ($Type -eq 'Warranty') {
             if ($Brief) {
                 $Output = $Script:WarrantyResults | Where-Object {$_.Name -notmatch 'Battery'} | Select-Object $Properties
@@ -539,7 +539,7 @@ end {
         }
         Return $Output
     }
-    else {
+    else {        
         Return $Script:Devices
     }
 }
