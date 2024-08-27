@@ -1,17 +1,24 @@
 # Get-LenovoInfo
-Get product information and warranty of a Lenovo PC from a serialnumber
+Script designed to retrieve and manage product specifications and warranty information for Lenovo devices using their serialnumbers.
 
-I have been using this method for ~2 years and it has been stable. If Lenovo changes their web-services, it could easiliy break. Lenovo does have a API, but I have had no luck in requesting a API key 🤷‍♂️
+This visual example shows full prodct specification from serialnumber:
+![image](https://github.com/user-attachments/assets/b7c84fa7-b1ec-46a0-a250-04900bfd1cb5)
 
-## TIPS 💡
+## Purpose
+When a serial number is queried, the script checks the local cache to see if the information is already available. If not, it fetches the data from Lenovo's web services, adds it to the cache, and then provides the requested details.
+The cache reduce the need for repeated online queries - this improves performance and offloads Lenovos APIs.
+
+## TIPS 1 - Hardware age 💡
 I found that using warranty start-date and todays date is good for calculating aproximate computer age. Sometimes one wants to identify the oldest computers so that one can prioritize replacement. Looking at CPU-generations etc. can be cumbersome.
 The scripts calculates this age in years and presents it as "YearsSinceBought"
+
+## TIPS 2 - Hardware 💡
+The product specification includes detailed hardware info on all devices. One can easiliy identify computers with less than 16GB memory, or computers without a TPM 2.0 chip, and therefore not ready for Windows 11
 
 ## Install
 ```PowerShell
 Install-Script -Name Get-LenovoInfo
 ```
-
 
 ## 🔵 Example 1 - Warranty lookup, brief output
 ```PowerShell
