@@ -2,6 +2,7 @@
 Script designed to retrieve and manage product specifications and warranty information for Lenovo devices using their serialnumbers.
 
 This screenshot shows brief warranty:
+
 ![image](https://github.com/user-attachments/assets/01c0fd9c-cd4e-4597-a96d-f7b132de61f6)
 
 This screenshot shows brief prodct specification:
