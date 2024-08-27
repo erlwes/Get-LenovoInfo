@@ -94,15 +94,112 @@ Get-LenovoInfo -Serialnumber -ClearCache All
 
 ## 🔵 Example 6 - Get warranty on local machine
 ```PowerShell
-(wmic bios get serialnumber)[2] | Get-LenovoInfo -Brief
+(wmic bios get serialnumber)[2] | Get-LenovoInfo -Type Warranty
 ```
 ```
-DeliveryType     : On site
-ProductName      : T14s Gen 3
-Model            : 21BR00F2MX
-SerialNumber     : GM03ABCD
-Name             : 3Y Premier Support
+WarrentyType     : 3EZ
+DeliveryType     : Depot/mail
+ProductName      : T14s Gen 3 (Type 21BR 21BS) Laptop (ThinkPad) - Type 21BR
+Model            : 21BR002AMX
+SerialNumber     : PF3WABCD
+Name             : 3Y Depot, 9X5 2BD Warranty
+Description      : This product has a three year limited warranty and is entitled to depot/Carry-in repair service. Customers may call their local service center for more info
+                   rmation. Dealers may provide carry-in repair for this product. Batteries have a one year warranty. If pen comes with the product, pen  is entitled to one ye
+                   ar warranty.
 Status           : Active
-DaysLeft         : 579
-YearsSinceBought : 1,41
+Start            : 2022-09-14
+End              : 2025-09-13
+Duration         : 36
+DaysLeft         : 381
+Origin           : Purchased Warranty
+CountryName      : Denmark
+YearsSinceBought : 1,96
+
+WarrentyType     : 1EZBAT
+DeliveryType     : Depot/mail
+ProductName      : T14s Gen 3 (Type 21BR 21BS) Laptop (ThinkPad) - Type 21BR
+Model            : 21BR002AMX
+SerialNumber     : PF3WABCD
+Name             : 1YR Battery (Carry-in/Depot Warranty)
+Description      : The battery included within this product is entitled to a 1 year CRU/Depot/Carry-in warranty.  Please note that this may differ from the warranty of the bas
+                   e product itself.
+Status           : Expired
+Start            : 2022-09-14
+End              : 2023-09-13
+Duration         : 12
+DaysLeft         : -349
+Origin           : Purchased Warranty
+CountryName      : Denmark
+YearsSinceBought : 1,96
+
+WarrentyType     : UKN
+DeliveryType     : On site
+ProductName      : T14s Gen 3 (Type 21BR 21BS) Laptop (ThinkPad) - Type 21BR
+Model            : 21BR002AMX
+SerialNumber     : PF3WABCD
+Name             : 3Y Premier Support
+Description      : This machine is entitled to a warranty upgrade of 3 year of Premier Support service.
+Status           : Active
+Start            : 2022-09-14
+End              : 2025-09-13
+Duration         : 36
+DaysLeft         : 381
+Origin           : Purchased Warranty
+CountryName      : Denmark
+YearsSinceBought : 1,96
+```
+
+## 🔵 Example 7 - Full product specification
+```PowerShell
+Get-LenovoInfo -Serialnumber PF3WABCD -Type ProductSpecification
+```
+```
+ModelCode  Part                        Value                                                                                    Serial
+---------  ----                        -----                                                                                    ------
+21BR002AMX Processor                   Intel Core i5-1240P, 12C (4P + 8E) / 16T, P-core 1.7 / 4.4GHz, E-core 1.2 / 3.3GHz, 12MB PF3WABCD
+21BR002AMX Graphics                    Integrated Intel Iris Xe Graphics                                                        PF3WABCD
+21BR002AMX Chipset                     Intel SoC Platform                                                                       PF3WABCD
+21BR002AMX Memory                      16GB Soldered LPDDR5-4800                                                                PF3WABCD
+21BR002AMX Memory Slots                Memory soldered to systemboard, no slots, dual-channel                                   PF3WABCD
+21BR002AMX Max Memory                  16GB soldered memory, not upgradable                                                     PF3WABCD
+21BR002AMX Storage                     256GB SSD M.2 2280 PCIe x4 NVMe Opal 2.0                                                 PF3WABCD
+21BR002AMX Storage Support             One drive, up to 2TB M.2 2280 SSD                                                        PF3WABCD
+21BR002AMX Storage Slot                One M.2 2280 PCIe 4.0 x4 slot                                                            PF3WABCD
+21BR002AMX Card Reader                 None                                                                                     PF3WABCD
+21BR002AMX Optical                     None                                                                                     PF3WABCD
+21BR002AMX Audio Chip                  High Definition (HD) Audio, Realtek ALC3287 codec                                        PF3WABCD
+21BR002AMX Speakers                    Stereo speakers, 2W x2, Dolby Audio                                                      PF3WABCD
+21BR002AMX Camera                      FHD 1080p + IR Hybrid with Privacy Shutter                                               PF3WABCD
+21BR002AMX Microphone                  2x, Array                                                                                PF3WABCD
+21BR002AMX Battery                     Integrated 57Wh                                                                          PF3WABCD
+21BR002AMX Power Adapter               65W USB-C                                                                                PF3WABCD
+21BR002AMX Display                     14" WUXGA (1920x1200) IPS 400nits Anti-glare, 100% sRGB, Low Power                       PF3WABCD
+21BR002AMX Touchscreen                 None                                                                                     PF3WABCD
+21BR002AMX Keyboard                    Backlit, Nordic (DK/FI/NO/SV)                                                            PF3WABCD
+21BR002AMX Case Color                  Thunder Black                                                                            PF3WABCD
+21BR002AMX Case Material               Carbon Fiber Hybrid (Top), Aluminium (Bottom)                                            PF3WABCD
+21BR002AMX Dimensions (WxDxH)          317.5 x 226.9 x 16.9 mm (12.5 x 8.93 x 0.67 inches)                                      PF3WABCD
+21BR002AMX Weight                      Starting at 1.21 kg (2.67 lbs)                                                           PF3WABCD
+21BR002AMX Operating System            Windows 11 Pro, Nordic (DK/FI/SV/NO/EN)                                                  PF3WABCD
+21BR002AMX Bundled Software            Intel Connectivity Performance Suite                                                     PF3WABCD
+21BR002AMX Ethernet                    No Onboard Ethernet                                                                      PF3WABCD
+21BR002AMX WLAN + Bluetooth            Intel Wi-Fi 6E AX211, 802.11ax 2x2 + BT5.1                                               PF3WABCD
+21BR002AMX WWAN                        WWAN Upgradable to 4G                                                                    PF3WABCD
+21BR002AMX SIM Card                    None                                                                                     PF3WABCD
+21BR002AMX NFC                         None                                                                                     PF3WABCD
+21BR002AMX Standard Ports              System.Object[]                                                                          PF3WABCD
+21BR002AMX Optional Ports (configured) System.Object[]                                                                          PF3WABCD
+21BR002AMX Docking                     Various docking solutions supported via Thunderbolt / USB-C                              PF3WABCD
+21BR002AMX Smart Card Reader           Smart Card Reader                                                                        PF3WABCD
+21BR002AMX Security Chip               Discrete TPM 2.0 Enabled                                                                 PF3WABCD
+21BR002AMX Fingerprint Reader          Touch Style, Match-on-Chip, Integrated in Power Button                                   PF3WABCD
+21BR002AMX Physical Locks              Kensington Nano Security Slot, 2.5 x 6 mm                                                PF3WABCD
+21BR002AMX Other Security              System.Object[]                                                                          PF3WABCD
+21BR002AMX System Management           Non-vPro                                                                                 PF3WABCD
+21BR002AMX Base Warranty               3-year, Courier or Carry-in                                                              PF3WABCD
+21BR002AMX Included Upgrade            CO2 Offset 1 ton, 3Y Premier Support HB (CPN)                                            PF3WABCD
+21BR002AMX Bundled Accessories         None                                                                                     PF3WABCD
+21BR002AMX Green Certifications        System.Object[]                                                                          PF3WABCD
+21BR002AMX Other Certifications        System.Object[]                                                                          PF3WABCD
+21BR002AMX Mil-Spec Test               MIL-STD-810H military test passed                                                        PF3WABCD
 ```
