@@ -73,7 +73,10 @@ param(
     [string]$ClearCache,
 
     [Parameter(Mandatory = $false)]
-    [Switch]$ShowCachesCombined
+    [Switch]$ShowCachesCombined,
+
+    [Parameter(Mandatory = $false)]
+    [Switch]$VerboseLogging
 )
 begin {
     if ($Brief) {
@@ -116,9 +119,9 @@ begin {
     $Script:WarrantyResults = @()
     $Script:SpecResults = @()
 
-    $Script:CacheFileProductID = "$(Get-Location)\Get-LenovoInfo-ProductIDCache.csv"
-    $Script:CacheFileWarranty = "$(Get-Location)\Get-LenovoInfo-WarrantyCache.csv"
-    $Script:CacheFileProductSpecifications = "$(Get-Location)\Get-LenovoInfo-ProductSpecificationsCache.csv"
+    $Script:CacheFileProductID = "$PSScriptRoot\Get-LenovoInfo-ProductIDCache.csv"
+    $Script:CacheFileWarranty = "$PSScriptRoot\Get-LenovoInfo-WarrantyCache.csv"
+    $Script:CacheFileProductSpecifications = "$PSScriptRoot\Get-LenovoInfo-ProductSpecificationsCache.csv"
 
     Function Write-Log {
         param(
@@ -126,9 +129,7 @@ begin {
             [int]$Level,
 
             [Parameter(Mandatory=$true)]
-            [string]$Message,
-
-            [switch]$Silent
+            [string]$Message            
         )
         $Message = $Message.Replace("`r",'').Replace("`n",' ')
         switch ($Level) {
@@ -139,7 +140,7 @@ begin {
             4 { $Status = 'Console' ;$FGColor = 'Gray'    }
             Default { $Status = ''  ;$FGColor = 'Black'   }
         }
-        if (-not $Silent) {
+        if ($VerboseLogging) {
             Write-Host "$((Get-Date).ToString()) " -ForegroundColor 'DarkGray' -NoNewline
             Write-Host "$Status" -ForegroundColor $FGColor -NoNewline
 
@@ -523,7 +524,12 @@ end {
     if (!$ShowCachesCombined -and !$InspectCache) {         
         if ($Type -eq 'Warranty') {
             if ($Brief) {
-                $Output = $Script:WarrantyResults | Where-Object {$_.Name -notmatch 'Battery'} | Select-Object $Properties
+                if ($Script:WarrantyResults.Name -match 'Premier') {
+                    $Output = $Script:WarrantyResults | Where-Object {$_.Name -match 'Premier'} | Select-Object $Properties
+                }
+                else {
+                    $Output = $Script:WarrantyResults | Where-Object {$_.Name -notmatch 'Battery'} | Select-Object $Properties
+                }
             }
             else {
                 $Output = $Script:WarrantyResults | Select-Object $Properties
