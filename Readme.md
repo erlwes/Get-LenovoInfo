@@ -11,17 +11,17 @@ Script designed to retrieve and manage product specifications and warranty infor
 When a serial number is queried, the script checks the local cache to see if the information is already available. If not, it fetches the data from Lenovo's web services, adds it to the cache, and then provides the requested details.
 The cache reduce the need for repeated online queries - this improves performance and offloads Lenovos APIs.
 
-## TIPS 1 - Device age 💡
-I found that using warranty start-date and todays date is good for calculating aproximate computer age. Sometimes one wants to identify the oldest computers so that one can prioritize replacement. Looking at CPU-generations etc. can be cumbersome.
-The scripts calculates this age in years and presents it as "YearsSinceBought"
-
-## TIPS 2 - Hardware requirements 💡
-The product specification includes detailed hardware info on all devices. As an example, one could easiliy identify computers with < 8GB memory, or computers without a TPM 2.0 chip, and therefore not ready for Windows 11.
-
 ## Install
 ```PowerShell
 Install-Script -Name Get-LenovoInfo
 ```
+
+## TIPS 💡
+
+**Device age** - I found that using warranty start-date and todays date is good for calculating aproximate computer age. Sometimes one wants to identify the oldest computers so that one can prioritize replacement. Looking at CPU-generations etc. can be cumbersome.
+The scripts calculates this age in years and presents it as "YearsSinceBought"
+
+**Hardware requirements** - The product specification includes detailed hardware info on all devices. As an example, one could easiliy identify computers with < 8GB memory, or computers without a TPM 2.0 chip, and therefore not ready for Windows 11.
 
 ## 🔵 Example 1 - Warranty lookup, brief output
 ```PowerShell
