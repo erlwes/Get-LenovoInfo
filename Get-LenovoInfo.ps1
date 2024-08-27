@@ -1,6 +1,6 @@
 <#PSScriptInfo
 
-    .VERSION 1.5.0
+    .VERSION 1.6.0
     .GUID 2ec72304-ff34-4f42-bd0c-2211df4d9074
     .AUTHOR Erlend Westervik
     .COMPANYNAME
@@ -16,6 +16,7 @@
         Version: 1.0.0 - Original published version
         Version: 1.1.0 - Rewrite. New baseline.
         Version: 1.5.0 - Added 'ShowCachesCombined' + fixed some output that got pre-formated
+        Version: 1.6.0 - Added 'VerboseLogging'-parameter and changed default cache location to script location instead of current directory.
 #>
 
 <#
@@ -27,21 +28,27 @@
     If the serialnumber/model-code does not exist in cache (eg. first time queried), the script will go online and fetch warranty and/or product spec info from Lenovo web-services.
     In addition to the standard output from Lenovo web-pages, days left of warranty or days since expired will be calculated, alog with an aproximate age of the computer using (years since waranty start)
 
-.PARAMETER Brief
-    Warranty: Shows only base product warranties. If more than one, show premium/on-site support warranty
-    Product: Output limited to the most essential hardware components of product
-
-.PARAMETER InspectCache
-    Shows content in exising offline cache file(s) in a gridview.
-
-.PARAMETER ClearCache
-    Deletes one or more offline cache file(s) from disk.
-
 .PARAMETER Serialnumber
     One or more serialnumber(s) that you want to get warranty and/or product specs for.
 
 .PARAMETER Type
     What type of information to query. This can be 'Warranty' or 'ProductSpecification'. Default 'Warranty'.
+
+.PARAMETER Brief
+    Warranty: Shows only base product warranties. If more than one, show premium/on-site support warranty
+    Product: Output limited to the most essential hardware components of product
+
+.PARAMETER InspectCache
+    Shows content in exising offline cache file(s). Pipe results to gridview for easy filtering and searching.
+
+.PARAMETER ClearCache
+    Deletes one or more offline cache file(s) from disk.
+
+.PARAMETER ShowCachesCombined
+    Shows selected info on all devices that exist in local cache. Pipe results to gridview for easy filtering and searching.
+
+.PARAMETER VerboseLogging
+    Logging to console.
 
 .EXAMPLE
     .\Get-LenovoInfo.ps1 -Serialnumber 'PF0A0BBB' -Type Warranty
