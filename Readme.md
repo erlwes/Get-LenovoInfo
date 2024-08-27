@@ -1,8 +1,11 @@
 # Get-LenovoInfo
 Script designed to retrieve and manage product specifications and warranty information for Lenovo devices using their serialnumbers.
 
-This visual example shows full prodct specification from serialnumber:
-![image](https://github.com/user-attachments/assets/b7c84fa7-b1ec-46a0-a250-04900bfd1cb5)
+This screenshot shows brief warranty:
+![image](https://github.com/user-attachments/assets/01c0fd9c-cd4e-4597-a96d-f7b132de61f6)
+
+This screenshot shows brief prodct specification:
+![image](https://github.com/user-attachments/assets/2ec54acd-8535-40cf-8393-60d2a035da2a)
 
 ## Description
 When a serial number is queried, the script checks the local cache to see if the information is already available. If not, it fetches the data from Lenovo's web services, adds it to the cache, and then provides the requested details.
@@ -88,6 +91,3 @@ GM00CABC	21BR00EXMX		T14s Gen 3      	3Y Premier Support	             523	     1
 ```PowerShell
 Get-LenovoInfo -Serialnumber -ClearCache All
 ```
-
-## Visual example - Single serial, brief product specification
-![image](https://github.com/user-attachments/assets/de28f708-6eea-46b7-8f4b-baf0c6c8bce1)
