@@ -1,7 +1,6 @@
 # Get-LenovoInfo
 Script designed to retrieve and manage product specifications and warranty information for Lenovo devices using their serialnumbers.
 
-## Description
 When a serial number is queried, the script checks the local cache to see if the information is already available. If not, it fetches the data from Lenovo's web services, adds it to the cache, and then provides the requested details.
 The cache reduce the need for repeated online queries - this improves performance and offloads Lenovos APIs.
 
