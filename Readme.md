@@ -11,11 +11,11 @@ This screenshot shows brief prodct specification:
 When a serial number is queried, the script checks the local cache to see if the information is already available. If not, it fetches the data from Lenovo's web services, adds it to the cache, and then provides the requested details.
 The cache reduce the need for repeated online queries - this improves performance and offloads Lenovos APIs.
 
-## TIPS 1 - Hardware age 💡
+## TIPS 1 - Device age 💡
 I found that using warranty start-date and todays date is good for calculating aproximate computer age. Sometimes one wants to identify the oldest computers so that one can prioritize replacement. Looking at CPU-generations etc. can be cumbersome.
 The scripts calculates this age in years and presents it as "YearsSinceBought"
 
-## TIPS 2 - Hardware 💡
+## TIPS 2 - Hardware requirements 💡
 The product specification includes detailed hardware info on all devices. One can easiliy identify computers with less than 16GB memory, or computers without a TPM 2.0 chip, and therefore not ready for Windows 11
 
 ## Install
