@@ -208,6 +208,7 @@ ModelCode  Part                        Value                                    
 ```PowerShell
 Get-LenovoInfo -Serialnumber PF3WABCD -Brief -Type ProductSpecification -VerboseLogging -ForceWeb
 ```
+```
 27.08.2024 20:14:22 Info         Offline Cache - File exist ('C:\Users\Temp\...\Get-LenovoInfo-ProductIDCache.csv')
 27.08.2024 20:14:22 Success      Offline Cache - File loaded (1 entries)
 27.08.2024 20:14:22 Info         Offline Cache - File exist ('C:\Users\Temp\...\Get-LenovoInfo-ProductSpecificationsCache.csv')
@@ -216,7 +217,9 @@ Get-LenovoInfo -Serialnumber PF3WABCD -Brief -Type ProductSpecification -Verbose
 27.08.2024 20:14:22 Success      Invoke-WebRequest - ProductID: 200 OK 'https://pcsupport.lenovo.com/gb/en/api/v4/mse/getproducts?productId=PF3WABCD'
 27.08.2024 20:14:22 Info         Offline Cache - Product Specifications: Model '21BR002AMX' not found in cache
 27.08.2024 20:14:22 Success      Invoke-WebRequest - Product Specification: 200 OK 'https://psref.lenovo.com/api/model/Info/SpecData?model_code=21BR002AMX'
+```
 
+```
 ModelCode  Part             Value
 ---------  ----             -----
 21BR002AMX Processor        Intel Core i5-1240P, 12C (4P + 8E) / 16T, P-core 1.7 / 4.4GHz, E-core 1.2 / 3.3GHz, 12MB
