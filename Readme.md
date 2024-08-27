@@ -91,3 +91,18 @@ GM00CABC	21BR00EXMX		T14s Gen 3      	3Y Premier Support	             523	     1
 ```PowerShell
 Get-LenovoInfo -Serialnumber -ClearCache All
 ```
+
+## 🔵 Example 6 - Get warranty on local machine
+```PowerShell
+(wmic bios get serialnumber)[2] | Get-LenovoInfo -Brief
+```
+```
+DeliveryType     : On site
+ProductName      : T14s Gen 3
+Model            : 21BR00F2MX
+SerialNumber     : GM03ABCD
+Name             : 3Y Premier Support
+Status           : Active
+DaysLeft         : 579
+YearsSinceBought : 1,41
+```
