@@ -16,7 +16,7 @@ I found that using warranty start-date and todays date is good for calculating a
 The scripts calculates this age in years and presents it as "YearsSinceBought"
 
 ## TIPS 2 - Hardware requirements 💡
-The product specification includes detailed hardware info on all devices. One can easiliy identify computers with less than 16GB memory, or computers without a TPM 2.0 chip, and therefore not ready for Windows 11
+The product specification includes detailed hardware info on all devices. As an example, one could easiliy identify computers with < 8GB memory, or computers without a TPM 2.0 chip, and therefore not ready for Windows 11.
 
 ## Install
 ```PowerShell
