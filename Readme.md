@@ -4,7 +4,7 @@ Script designed to retrieve and manage product specifications and warranty infor
 This visual example shows full prodct specification from serialnumber:
 ![image](https://github.com/user-attachments/assets/b7c84fa7-b1ec-46a0-a250-04900bfd1cb5)
 
-## Purpose
+## Description
 When a serial number is queried, the script checks the local cache to see if the information is already available. If not, it fetches the data from Lenovo's web services, adds it to the cache, and then provides the requested details.
 The cache reduce the need for repeated online queries - this improves performance and offloads Lenovos APIs.
 
