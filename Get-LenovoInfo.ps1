@@ -1,6 +1,6 @@
 <#PSScriptInfo
 
-    .VERSION 1.7.0
+    .VERSION 1.8.0
     .GUID 2ec72304-ff34-4f42-bd0c-2211df4d9074
     .AUTHOR Erlend Westervik
     .COMPANYNAME
@@ -17,7 +17,7 @@
         Version: 1.1.0 - Rewrite. New baseline.
         Version: 1.5.0 - Added 'ShowCachesCombined' + fixed some output that got pre-formated
         Version: 1.6.0 - Added 'VerboseLogging'-parameter and changed default cache location to script location instead of current directory.
-        Version: 1.7.0 - Added PostWarrantyService/ContractWarranties (extended support) to the results.
+        Version: 1.8.0 - Added PostWarrantyService/ContractWarranties (extended support) to the results.
 #>
 
 <#
