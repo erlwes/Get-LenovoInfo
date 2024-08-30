@@ -1,6 +1,6 @@
 <#PSScriptInfo
 
-    .VERSION 1.6.0
+    .VERSION 1.7.0
     .GUID 2ec72304-ff34-4f42-bd0c-2211df4d9074
     .AUTHOR Erlend Westervik
     .COMPANYNAME
@@ -17,6 +17,7 @@
         Version: 1.1.0 - Rewrite. New baseline.
         Version: 1.5.0 - Added 'ShowCachesCombined' + fixed some output that got pre-formated
         Version: 1.6.0 - Added 'VerboseLogging'-parameter and changed default cache location to script location instead of current directory.
+        Version: 1.7.0 - Added PostWarrantyService/ContractWarranties (extended support) to the results.
 #>
 
 <#
@@ -288,9 +289,13 @@ begin {
             $PSObject = ((($Result.content -split "`n") | Where-Object {$_ -match 'var ds_warranties'}) -replace 'var ds_warranties = window.ds_warranties \|\| ' -replace ';$') | ConvertFrom-Json
         }
 
+        #Uncomment to inspect RAW warranty webresults (use -Forceweb)
+        #$PSObject;Break
+
         if ($PSObject) {
 
             $Warranties = @()
+            $Warranties += $PSObject.ContractWarranties | Where-Object {$_.Status -eq 'Active'}
             $Warranties += $PSObject.BaseWarranties
             $Warranties += $PSObject.UpmaWarranties
             $Warranties += $PSObject.AodWarranties
@@ -301,22 +306,46 @@ begin {
                 Clear-Variable Warranty -ErrorAction SilentlyContinue
                 $Warranty = $_
                 $ApproximateAgeInYears = (((Get-Date) - (Get-Date $Warranty.Start)).TotalDays / 365)
-                try {
+                try {                    
+                    Clear-Variable WarrentyType, YearsSinceBought, CountryName, Description -ErrorAction SilentlyContinue
+                    if ($Warranty.ChargeCode) {
+                        $WarrentyType        = $Warranty.ChargeCode
+                        $YearsSinceBought    = ''
+                    }
+                    else {
+                        $WarrentyType        = $Warranty.WarrentyType
+                        $YearsSinceBought    = [math]::Round($ApproximateAgeInYears,2)
+                    }
+
+                    if ($Warranty.AssetLocation) {
+                        $CountryName        = $Warranty.AssetLocation
+                    }
+                    else {
+                        $CountryName        = $Warranty.CountryName
+                    }
+
+                    if ($Warranty.SLA) {
+                        $Description        = $Warranty.SLA
+                    }
+                    else {
+                        $Description        = $Warranty.Description
+                    }
+
                     $Obj = [pscustomobject]@{
-                        WarrentyType        = $Warranty.WarrentyType
+                        WarrentyType        = $WarrentyType                 
                         DeliveryType        = $Warranty.DeliveryType
                         ProductName         = $PSObject.ProductName
                         Model               = ($PSObject.MachineType, $PSObject.Mode -join '')
                         SerialNumber        = $PSObject.Serial
                         Name                = $Warranty.Name
-                        Description         = $Warranty.Description
+                        Description         = $Description
                         Status              = $Warranty.Status
                         Start               = $Warranty.Start
                         End                 = $Warranty.End
                         Duration            = $Warranty.Duration
                         Origin              = $Warranty.Origin
-                        CountryName         = $Warranty.CountryName
-                        YearsSinceBought    = [math]::Round($ApproximateAgeInYears,2)
+                        CountryName         = $CountryName
+                        YearsSinceBought    = $YearsSinceBought
                     }
                     $Script:WarrantyResults += $Obj
                     $Script:CacheWarranty += $Obj
