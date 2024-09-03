@@ -33,4 +33,4 @@ STA-KARNOR-T14 T14s Gen 2  20WM009AMX PC241ABC     3Y Depot, 9X5 2BD Warranty Ac
 ```
 
 Idea 💡
-Store the warranty info on the device ovject in azure using an extensionattribute!
+Store the warranty info on the device object in azure using an device extensionattribute!
