@@ -22,6 +22,9 @@ The scripts calculates this age in years and presents it as "YearsSinceBought"
 
 **Hardware requirements** - The product specification includes detailed hardware info on all devices. As an example, one could easiliy identify computers with < 8GB memory, or computers without a TPM 2.0 chip, and therefore not ready for Windows 11.
 
+## Check warranty on all Lenovo devices in Intune? 💻
+take a look at this [practical example](https://github.com/erlwes/Get-LenovoInfo/blob/main/PracticalExample.md)
+
 ## 🔵 Example 1 - Warranty lookup, brief output
 ```PowerShell
 Get-LenovoInfo -Serialnumber PC29DABC -Brief
