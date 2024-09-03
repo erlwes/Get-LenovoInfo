@@ -31,3 +31,6 @@ OSL-ERLWES-T14 T14s Gen 2  20XF006RMX PC29DABC     3Y Depot, 9X5 2BD Warranty Ac
 BER-OLANOR-P14 T14s Gen 2  20WM009AMX PC241ABC     3Y Depot, 9X5 2BD Warranty Active 47       2,87
 STA-KARNOR-T14 T14s Gen 2  20WM009AMX PC241ABC     3Y Depot, 9X5 2BD Warranty Active 47       2,87
 ```
+
+Idea 💡
+Store the warranty info on the device ovject in azure using an extensionattribute!
