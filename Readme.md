@@ -1,3 +1,6 @@
+![PowerShell](https://img.shields.io/badge/PowerShell-5+-blue)
+![PowerShell Gallery Downloads](https://img.shields.io/powershellgallery/dt/Get-LenovoInfo)
+
 # Get-LenovoInfo
 Script designed to retrieve and manage product specifications and warranty information for Lenovo devices using their serialnumbers.
 
